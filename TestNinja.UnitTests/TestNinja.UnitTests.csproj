@@ -57,6 +57,7 @@
     <Compile Include="ReservationTests_MSTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReservationTests.cs" />
+    <Compile Include="HtmlFormatterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
