@@ -11,10 +11,6 @@ namespace TestNinja.UnitTests
     [TestFixture]
     class FizzBuzzTests
     {
-        private FizzBuzz _fizzbuzz;
-
-
-
        
         [Test]
         [TestCase(15,"FizzBuzz")]
