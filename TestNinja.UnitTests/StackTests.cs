@@ -14,7 +14,6 @@ namespace TestNinja.UnitTests
         }
 
         //Checking Count Property
-
         [Test]
         public void Count_EmptyStack_ReturnZero()
         {
@@ -29,7 +28,6 @@ namespace TestNinja.UnitTests
         }
 
         //Pushing Elements into Stack
-
         [Test]
         public void Push_ValidObject_ObjectIsStoredInTheStack()
         {
