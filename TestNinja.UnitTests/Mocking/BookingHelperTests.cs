@@ -14,6 +14,7 @@ namespace TestNinja.UnitTests.Mocking
     {
         private Booking _existingBooking;
         private Mock<IBookingRepository> _bookingRepository;
+
         [SetUp]
         public void SetUp()
         {
@@ -29,7 +30,6 @@ namespace TestNinja.UnitTests.Mocking
             _bookingRepository.Setup(r => r.GetActiveBookings(1)).Returns(new List<Booking> { _existingBooking }.AsQueryable());
         }
        
-
         [Test]
         public void BookingStartsAndFinishesBeforeAnExistingBooking_ReturnsEmptyString()
         {
@@ -65,6 +65,7 @@ namespace TestNinja.UnitTests.Mocking
             }, _bookingRepository.Object);
             Assert.That(result, Is.EqualTo(_existingBooking.Reference));
         }
+
         [Test]
         public void BookingStartsAndFinishesInTheMiddleOfAnExistingBooking_ReturnsExistingBookinReferenceg()
         {
@@ -76,6 +77,7 @@ namespace TestNinja.UnitTests.Mocking
             }, _bookingRepository.Object);
             Assert.That(result, Is.EqualTo(_existingBooking.Reference));
         }
+
         [Test]
         public void BookingStartsInTheMiddleOfAnExistingBookingFinishesAfter_ReturnsExistingBookinReference()
         {
@@ -87,6 +89,7 @@ namespace TestNinja.UnitTests.Mocking
             }, _bookingRepository.Object);
             Assert.That(result, Is.EqualTo(_existingBooking.Reference));
         }
+
         [Test]
         public void BookingStartsAndFinishesAfterAnExistingBooking_ReturnsEmptyString()
         {
@@ -98,6 +101,7 @@ namespace TestNinja.UnitTests.Mocking
             }, _bookingRepository.Object);
             Assert.That(result, Is.Empty);
         }
+
         [Test]
         public void BookingOverLappedButNewBookingIsCancelled_ReturnsEmptyString()
         {
@@ -110,6 +114,8 @@ namespace TestNinja.UnitTests.Mocking
             }, _bookingRepository.Object);
             Assert.That(result, Is.Empty);
         }
+
+        //Private Methods To Help Reduce Code Clutter
         private DateTime ArriveOn(int year, int month, int date)
         {
             return new DateTime(year, month, date, 14, 0, 0);
